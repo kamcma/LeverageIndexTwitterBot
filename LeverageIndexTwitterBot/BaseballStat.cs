@@ -12853,31 +12853,66 @@ namespace cleLI
                                     }
                                 }
                                 break;
-                            case 1: //PAUSING HERE
+                            case 1:
                                 if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
                                 {
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 0.5;
+                                            leverageIndex = 0.4;
                                             break;
                                         case -3:
-                                            leverageIndex = 0.8;
+                                            leverageIndex = 0.7;
                                             break;
                                         case -2:
-                                            leverageIndex = 1.1;
-                                            break;
-                                        case -1:
-                                            leverageIndex = 1.4;
-                                            break;
-                                        case 0:
                                             leverageIndex = 1.2;
                                             break;
+                                        case -1:
+                                            leverageIndex = 1.9;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.4;
+                                            break;
                                         case 1:
-                                            leverageIndex = 0.6;
+                                            leverageIndex = 0.5;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 3.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 0.4;
                                             break;
                                         case 3:
                                             leverageIndex = 0.2;
@@ -12889,71 +12924,36 @@ namespace cleLI
                                             break;
                                     }
                                 }
-                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
-                                {
-                                    switch (runDeltaHome)
-                                    {
-                                        case -4:
-                                            leverageIndex = 1.0;
-                                            break;
-                                        case -3:
-                                            leverageIndex = 1.5;
-                                            break;
-                                        case -2:
-                                            leverageIndex = 2.1;
-                                            break;
-                                        case -1:
-                                            leverageIndex = 2.5;
-                                            break;
-                                        case 0:
-                                            leverageIndex = 2.0;
-                                            break;
-                                        case 1:
-                                            leverageIndex = 1.1;
-                                            break;
-                                        case 2:
-                                            leverageIndex = 0.6;
-                                            break;
-                                        case 3:
-                                            leverageIndex = 0.3;
-                                            break;
-                                        case 4:
-                                            leverageIndex = 0.2;
-                                            break;
-                                        default:
-                                            break;
-                                    }
-                                }
                                 else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
                                 {
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.0;
+                                            leverageIndex = 0.8;
                                             break;
                                         case -3:
                                             leverageIndex = 1.5;
                                             break;
                                         case -2:
-                                            leverageIndex = 2.1;
+                                            leverageIndex = 2.4;
                                             break;
                                         case -1:
-                                            leverageIndex = 2.6;
+                                            leverageIndex = 3.4;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.1;
+                                            leverageIndex = 2.5;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.1;
+                                            leverageIndex = 0.8;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.6;
+                                            leverageIndex = 0.4;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.2;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.2;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -12964,31 +12964,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.0;
+                                            leverageIndex = 0.9;
                                             break;
                                         case -3:
                                             leverageIndex = 1.5;
                                             break;
                                         case -2:
-                                            leverageIndex = 2.1;
+                                            leverageIndex = 2.4;
                                             break;
                                         case -1:
-                                            leverageIndex = 2.9;
+                                            leverageIndex = 3.9;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.5;
+                                            leverageIndex = 3.2;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.3;
+                                            leverageIndex = 1.0;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.7;
+                                            leverageIndex = 0.5;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.4;
+                                            leverageIndex = 0.2;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.2;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -12999,31 +12999,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.9;
+                                            leverageIndex = 1.7;
                                             break;
                                         case -3:
-                                            leverageIndex = 2.7;
+                                            leverageIndex = 2.9;
                                             break;
                                         case -2:
-                                            leverageIndex = 3.6;
+                                            leverageIndex = 4.1;
                                             break;
                                         case -1:
-                                            leverageIndex = 4.0;
+                                            leverageIndex = 5.1;
                                             break;
                                         case 0:
-                                            leverageIndex = 3.0;
+                                            leverageIndex = 3.5;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.6;
+                                            leverageIndex = 1.1;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.9;
-                                            break;
-                                        case 3:
                                             leverageIndex = 0.5;
                                             break;
-                                        case 4:
+                                        case 3:
                                             leverageIndex = 0.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13034,31 +13034,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.8;
+                                            leverageIndex = 1.7;
                                             break;
                                         case -3:
-                                            leverageIndex = 2.6;
+                                            leverageIndex = 2.7;
                                             break;
                                         case -2:
-                                            leverageIndex = 3.2;
+                                            leverageIndex = 3.9;
                                             break;
                                         case -1:
-                                            leverageIndex = 3.7;
+                                            leverageIndex = 4.9;
                                             break;
                                         case 0:
-                                            leverageIndex = 3.1;
+                                            leverageIndex = 3.8;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.6;
+                                            leverageIndex = 1.2;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.9;
+                                            leverageIndex = 0.6;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.5;
+                                            leverageIndex = 0.3;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13069,31 +13069,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.7;
+                                            leverageIndex = 1.6;
                                             break;
                                         case -3:
-                                            leverageIndex = 2.4;
+                                            leverageIndex = 2.6;
                                             break;
                                         case -2:
-                                            leverageIndex = 3.0;
+                                            leverageIndex = 3.7;
                                             break;
                                         case -1:
-                                            leverageIndex = 3.0;
+                                            leverageIndex = 4.0;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.5;
+                                            leverageIndex = 3.0;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.3;
+                                            leverageIndex = 0.9;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.7;
-                                            break;
-                                        case 3:
                                             leverageIndex = 0.4;
                                             break;
-                                        case 4:
+                                        case 3:
                                             leverageIndex = 0.2;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13107,28 +13107,28 @@ namespace cleLI
                                             leverageIndex = 3.1;
                                             break;
                                         case -3:
-                                            leverageIndex = 4.2;
+                                            leverageIndex = 4.6;
                                             break;
                                         case -2:
-                                            leverageIndex = 4.9;
+                                            leverageIndex = 5.9;
                                             break;
                                         case -1:
-                                            leverageIndex = 4.8;
+                                            leverageIndex = 6.2;
                                             break;
                                         case 0:
-                                            leverageIndex = 3.7;
+                                            leverageIndex = 4.4;
                                             break;
                                         case 1:
-                                            leverageIndex = 2.0;
+                                            leverageIndex = 1.4;
                                             break;
                                         case 2:
-                                            leverageIndex = 1.1;
+                                            leverageIndex = 0.7;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.6;
+                                            leverageIndex = 0.3;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13150,13 +13150,13 @@ namespace cleLI
                                             leverageIndex = 0.7;
                                             break;
                                         case -1:
-                                            leverageIndex = 1.0;
+                                            leverageIndex = 1.3;
                                             break;
                                         case 0:
-                                            leverageIndex = 0.8;
+                                            leverageIndex = 1.1;
                                             break;
                                         case 1:
-                                            leverageIndex = 0.4;
+                                            leverageIndex = 0.3;
                                             break;
                                         case 2:
                                             leverageIndex = 0.2;
@@ -13165,7 +13165,7 @@ namespace cleLI
                                             leverageIndex = 0.1;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.1;
+                                            leverageIndex = 0.0;
                                             break;
                                         default:
                                             break;
@@ -13176,28 +13176,28 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 0.5;
-                                            break;
-                                        case -3:
-                                            leverageIndex = 0.9;
-                                            break;
-                                        case -2:
-                                            leverageIndex = 1.4;
-                                            break;
-                                        case -1:
-                                            leverageIndex = 1.8;
-                                            break;
-                                        case 0:
-                                            leverageIndex = 1.5;
-                                            break;
-                                        case 1:
-                                            leverageIndex = 0.8;
-                                            break;
-                                        case 2:
                                             leverageIndex = 0.4;
                                             break;
+                                        case -3:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 2.5;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 0.3;
+                                            break;
                                         case 3:
-                                            leverageIndex = 0.2;
+                                            leverageIndex = 0.1;
                                             break;
                                         case 4:
                                             leverageIndex = 0.1;
@@ -13211,31 +13211,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 0.7;
+                                            leverageIndex = 0.5;
                                             break;
                                         case -3:
-                                            leverageIndex = 1.1;
+                                            leverageIndex = 1.0;
                                             break;
                                         case -2:
-                                            leverageIndex = 1.8;
+                                            leverageIndex = 1.9;
                                             break;
                                         case -1:
-                                            leverageIndex = 2.6;
+                                            leverageIndex = 3.5;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.2;
+                                            leverageIndex = 2.8;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.1;
+                                            leverageIndex = 0.9;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.7;
-                                            break;
-                                        case 3:
                                             leverageIndex = 0.4;
                                             break;
-                                        case 4:
+                                        case 3:
                                             leverageIndex = 0.2;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13246,31 +13246,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 0.8;
+                                            leverageIndex = 0.5;
                                             break;
                                         case -3:
-                                            leverageIndex = 1.3;
+                                            leverageIndex = 1.1;
                                             break;
                                         case -2:
-                                            leverageIndex = 2.0;
+                                            leverageIndex = 2.1;
                                             break;
                                         case -1:
-                                            leverageIndex = 3.0;
+                                            leverageIndex = 4.1;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.6;
+                                            leverageIndex = 3.4;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.4;
+                                            leverageIndex = 1.0;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.8;
+                                            leverageIndex = 0.5;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.4;
+                                            leverageIndex = 0.2;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.2;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13281,28 +13281,28 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.2;
+                                            leverageIndex = 1.0;
                                             break;
                                         case -3:
                                             leverageIndex = 2.0;
                                             break;
                                         case -2:
-                                            leverageIndex = 2.9;
+                                            leverageIndex = 3.3;
                                             break;
                                         case -1:
-                                            leverageIndex = 3.6;
+                                            leverageIndex = 4.7;
                                             break;
                                         case 0:
-                                            leverageIndex = 2.9;
+                                            leverageIndex = 3.5;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.5;
+                                            leverageIndex = 1.1;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.8;
+                                            leverageIndex = 0.5;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.5;
+                                            leverageIndex = 0.2;
                                             break;
                                         case 4:
                                             leverageIndex = 0.2;
@@ -13316,31 +13316,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.3;
+                                            leverageIndex = 1.0;
                                             break;
                                         case -3:
-                                            leverageIndex = 2.1;
+                                            leverageIndex = 2.0;
                                             break;
                                         case -2:
-                                            leverageIndex = 3.0;
+                                            leverageIndex = 3.4;
                                             break;
                                         case -1:
-                                            leverageIndex = 3.8;
+                                            leverageIndex = 5.1;
                                             break;
                                         case 0:
-                                            leverageIndex = 3.1;
+                                            leverageIndex = 3.8;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.6;
+                                            leverageIndex = 1.2;
                                             break;
                                         case 2:
-                                            leverageIndex = 0.9;
+                                            leverageIndex = 0.6;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.5;
+                                            leverageIndex = 0.3;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13351,31 +13351,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 1.5;
+                                            leverageIndex = 1.2;
                                             break;
                                         case -3:
-                                            leverageIndex = 2.4;
+                                            leverageIndex = 2.3;
                                             break;
                                         case -2:
-                                            leverageIndex = 3.6;
+                                            leverageIndex = 4.2;
                                             break;
                                         case -1:
-                                            leverageIndex = 4.3;
+                                            leverageIndex = 5.8;
                                             break;
                                         case 0:
-                                            leverageIndex = 3.3;
+                                            leverageIndex = 3.9;
                                             break;
                                         case 1:
-                                            leverageIndex = 1.7;
+                                            leverageIndex = 1.3;
                                             break;
                                         case 2:
-                                            leverageIndex = 1.0;
+                                            leverageIndex = 0.6;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.5;
+                                            leverageIndex = 0.3;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.3;
+                                            leverageIndex = 0.1;
                                             break;
                                         default:
                                             break;
@@ -13386,31 +13386,31 @@ namespace cleLI
                                     switch (runDeltaHome)
                                     {
                                         case -4:
-                                            leverageIndex = 2.6;
+                                            leverageIndex = 2.3;
                                             break;
                                         case -3:
-                                            leverageIndex = 3.9;
+                                            leverageIndex = 4.0;
                                             break;
                                         case -2:
-                                            leverageIndex = 5.2;
+                                            leverageIndex = 6.1;
                                             break;
                                         case -1:
-                                            leverageIndex = 5.9;
+                                            leverageIndex = 7.7;
                                             break;
                                         case 0:
-                                            leverageIndex = 4.5;
+                                            leverageIndex = 5.3;
                                             break;
                                         case 1:
-                                            leverageIndex = 2.4;
+                                            leverageIndex = 1.7;
                                             break;
                                         case 2:
-                                            leverageIndex = 1.3;
+                                            leverageIndex = 0.8;
                                             break;
                                         case 3:
-                                            leverageIndex = 0.7;
+                                            leverageIndex = 0.4;
                                             break;
                                         case 4:
-                                            leverageIndex = 0.4;
+                                            leverageIndex = 0.2;
                                             break;
                                         default:
                                             break;
@@ -13423,6 +13423,1428 @@ namespace cleLI
                     }
                     break;
                 default:
+                    // top nine and later
+                    if (inning.Item1)
+                    {
+                        switch (inning.Item3)
+                        {
+                            case 0:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.6;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.7;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 3.1;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.2;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.6;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 5.3;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 4.4;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.2;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 3.0;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.7;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 5.2;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 5.7;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 3.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 1:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.9;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 2.2;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.1;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 3.9;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.2;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.3;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.2;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.2;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.3;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.4;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 6.1;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.0;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 5.7;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.2;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.9;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 3.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.7;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 7.3;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 6.2;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 4.2;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 2:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.4;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 4.6;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.5;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 5.5;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.0;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 5.9;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.6;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.1;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 6.9;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 3.9;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 2.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 6.9;
+                                            break;
+                                        case 1:
+                                            leverageIndex = 9.1;
+                                            break;
+                                        case 2:
+                                            leverageIndex = 5.7;
+                                            break;
+                                        case 3:
+                                            leverageIndex = 3.1;
+                                            break;
+                                        case 4:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    /// Bottom nine
+                    else
+                    {
+                        switch (inning.Item3)
+                        {
+                            case 0:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 3.6;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.3;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 3.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 5.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.9;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 3.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 4.3;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 3.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 3.5;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 3.6;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 5.2;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 6.0;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.2;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 2.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 5.5;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 4.3;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 3.5;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 4.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 4.3;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 5.4;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 6.4;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 5.3;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 1:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 2.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.9;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 2.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 4.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 2.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 5.0;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 3.2;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 5.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.3;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 4.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 7.2;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.3;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 2.9;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 4.9;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 7.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.4;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 2.8;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 4.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 5.7;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 3.0;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 5.1;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 7.3;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 8.6;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 2:
+                                if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.1;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 1.9;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 1.5;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.5;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 2.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 6.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.7;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.2;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 6.1;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.7;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.7;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 6.8;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.6;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.7;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 3.7;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 7.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 5.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 0.7;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 5.1;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 8.4;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 4.7;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                                {
+                                    switch (runDeltaHome)
+                                    {
+                                        case -4:
+                                            leverageIndex = 1.8;
+                                            break;
+                                        case -3:
+                                            leverageIndex = 3.9;
+                                            break;
+                                        case -2:
+                                            leverageIndex = 7.0;
+                                            break;
+                                        case -1:
+                                            leverageIndex = 10.9;
+                                            break;
+                                        case 0:
+                                            leverageIndex = 6.4;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                     break;
             }
 
