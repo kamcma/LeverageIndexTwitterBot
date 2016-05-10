@@ -58,7 +58,6 @@
     <Compile Include="BaseballStat.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Gameday.cs" />
-    <Compile Include="Leverage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

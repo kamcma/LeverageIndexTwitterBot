@@ -45,7 +45,7 @@ namespace cleLI
             this.AwayRuns = 0;
             this.HomeRuns = 0;
             this.BaseState = new Tuple<bool, bool, bool>(false, false, false);
-            this.LeverageIndex = 0.0;
+            this.LeverageIndex = 0.9;
         }
 
         public bool Refresh()
@@ -78,12 +78,7 @@ namespace cleLI
                 this.CurrentBatter = gamedayData.SelectSingleNode("/game/in_game/batter").Attributes.GetNamedItem("last").Value;
                 this.CurrentPitcher = gamedayData.SelectSingleNode("/game/in_game/pitcher").Attributes.GetNamedItem("last").Value;
 
-                if (BaseballStat.LeverageIndex(this.Inning, this.BaseState, this.HomeRuns - this.AwayRuns) != this.LeverageIndex)
-                {
-                    this.LeverageIndex = BaseballStat.LeverageIndex(this.Inning, this.BaseState, this.HomeRuns - this.AwayRuns);
-                    Console.Write("{0:t}: {1} {2}, {3} outs, {4}-{5}\n1B: {6} 2B {7} 3B: {8}\nLeverage index: {9}\n", DateTime.Now, this.Inning.Item1 ? "top" : "bottom", this.Inning.Item2, this.Inning.Item3, this.AwayRuns, this.HomeRuns, this.BaseState.Item1 ? "occupied" : "empty", this.BaseState.Item2 ? "occupied" : "empty", this.BaseState.Item3 ? "occupied" : "empty", this.LeverageIndex);
-                    Console.WriteLine("{0}", this.LeverageIndex >= 1.5 ? "High-leverage situation!\n" : "");
-                }
+                this.LeverageIndex = BaseballStat.LeverageIndex(this.Inning, this.BaseState, this.HomeRuns - this.AwayRuns);
 
                 return true;
             }

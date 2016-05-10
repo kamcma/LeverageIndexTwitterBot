@@ -23,33 +23,51 @@ namespace cleLI
             foreach (Game game in todaysGames)
             {
                 Console.WriteLine(game.GameID + "\n");
-                if (game.Refresh())
+                Console.Write("{0:t}: Game to start. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
+                //Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int> lastKnownGameState = new Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int>(new Tuple<bool, int, int>(true, 1, 0), new Tuple<bool, bool, bool>(false, false, false), 0);
+                int lastKnownOuts = 0;
+                bool lastKnownFirstStatus = false;
+                bool lastKnownSecondStatus = false;
+                bool lastKnownThirdStatus = false;
+                int lastKnownRunDeltaHome = 0;
+
+                do
                 {
-                    while (game.Status != "Final")
+                    if (game.Refresh())
                     {
-                        if (game.Refresh())
+                        if (!(game.Inning.Item3 == lastKnownOuts && game.BaseState.Item1 == lastKnownFirstStatus && game.BaseState.Item2 == lastKnownSecondStatus && game.BaseState.Item3 == lastKnownThirdStatus && game.HomeRuns - game.AwayRuns == lastKnownRunDeltaHome))
                         {
-                            //Console.Write("{0:t}: Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
+                            //Game state changed
+
+                            Console.Write("{0:t}: Game state changed. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
+
+                            if (game.LeverageIndex >= 1.5)
+                            {
+                                try
+                                {
+                                    string tweetContent = PhraseGenerator(game.CurrentBatter, game.BaseState, game.Inning, game.HomeRuns - game.AwayRuns);
+                                    Tweet(tweetContent);
+                                    Console.WriteLine("Tweeted: " + tweetContent);
+                                }
+                                catch
+                                {
+                                    Console.WriteLine("Tweet failed");
+                                }
+                            }
+
+                            lastKnownOuts = game.Inning.Item3;
+                            lastKnownFirstStatus = game.BaseState.Item1;
+                            lastKnownSecondStatus = game.BaseState.Item2;
+                            lastKnownThirdStatus = game.BaseState.Item3;
+                            lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
                         }
-                        else
-                        {
-                            Console.WriteLine("{0:t}: Refresh failed\n", DateTime.Now.TimeOfDay);
-                        }
-                        Thread.Sleep(30 * 1000);
                     }
-                    Console.WriteLine("Game over.");
+                    Thread.Sleep(20 * 1000);
                 }
-                else
-                {
-                    Console.WriteLine("specified xml file for {0} not found\n{1}", game.GameID, game.GamedayURL);
-                }
+                while (game.Status != "Final");
+                Console.WriteLine(game.GameID + " over");
             }
-
-
-            //Test LeverageIndex()
-            //Console.WriteLine(BaseballStat.LeverageIndex(new Tuple<bool, int, int>(false, 3, 2), new Tuple<bool, bool, bool>(false, true, false), -1));
-
-
+            Console.WriteLine("Program ending");
         }
 
         static void Tweet(string tweetText)
@@ -65,6 +83,94 @@ namespace cleLI
             SendTweetOptions tweet = new SendTweetOptions();
             tweet.Status = tweetText;
             service.SendTweet(tweet);
+        }
+
+        static string PhraseGenerator(string batter, Tuple<bool, bool, bool> baseState, Tuple<bool, int, int> inning, int runDeltaHome)
+        {
+            string basesPhrase = "";
+            if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
+                basesPhrase = "nobody on";
+            if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
+                basesPhrase = "a man on first";
+            if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
+                basesPhrase = "a man on second";
+            if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
+                basesPhrase = "a man on third";
+            if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
+                basesPhrase = "men on first and second";
+            if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
+                basesPhrase = "men on the corners";
+            if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
+                basesPhrase = "men on second and third";
+            if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
+                basesPhrase = "the bases loaded";
+
+            string differentialPhrase = "";
+            if (runDeltaHome == 0)
+            {
+                differentialPhrase = "tied";
+            }
+            else if (runDeltaHome > 0)
+            {
+                switch (Math.Abs(runDeltaHome))
+                {
+                    case 1:
+                        differentialPhrase = "up one";
+                        break;
+                    case 2:
+                        differentialPhrase = "up two";
+                        break;
+                    case 3:
+                        differentialPhrase = "up three";
+                        break;
+                    case 4:
+                        differentialPhrase = "up four";
+                        break;
+                    default:
+                        differentialPhrase = "up > four";
+                        break;
+                }
+            }
+            else
+            {
+                switch (Math.Abs(runDeltaHome))
+                {
+                    case 1:
+                        differentialPhrase = "down one";
+                        break;
+                    case 2:
+                        differentialPhrase = "down two";
+                        break;
+                    case 3:
+                        differentialPhrase = "down three";
+                        break;
+                    case 4:
+                        differentialPhrase = "down four";
+                        break;
+                    default:
+                        differentialPhrase = "down > four";
+                        break;
+                }
+            }
+
+            string outsPhrase = "";
+            switch (inning.Item3)
+            {
+                case 0:
+                    outsPhrase = "no outs";
+                    break;
+                case 1:
+                    outsPhrase = "one out";
+                    break;
+                case 2:
+                    outsPhrase = "two outs";
+                    break;
+                default:
+                    outsPhrase = "three outs";
+                    break;
+            }
+            
+            return "Heads up: @Indians " + differentialPhrase + " and " + batter + "up with " + basesPhrase + " and " + outsPhrase + " is a high-leverage situation.";
         }
     }
 }
