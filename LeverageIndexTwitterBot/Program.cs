@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TweetSharp;
 using System.Threading;
+using System.Configuration;
 
 namespace cleLI
 {
@@ -69,16 +70,17 @@ namespace cleLI
                 Console.WriteLine(game.GameID + " over");
             }
             Console.WriteLine("Program ending");
+
         }
 
         static void Tweet(string tweetText)
         {
-            string consumerKey = "pCmsnFypeb6E4kV5MTGUqBTKR";
-            string consumerSecret = "6apuAiOUTvFAeify3OQhKZ7dtccngVTVVYcGMHl8qiALhO4SRC";
+            string consumerKey = ConfigurationManager.AppSettings["consumerKey"];
+            string consumerSecret = ConfigurationManager.AppSettings["consumerSecret"];
             TwitterService service = new TwitterService(consumerKey, consumerSecret);
 
-            string token = "727610217467289600-sFSKObp8ObrnWQHzGlDaqFixmMzXw2X";
-            string tokenSecret = "bc60OTgVCmYblFbAkMBI4QgsMDIjmiMDJ3WkXoO7LUGFl";
+            string token = ConfigurationManager.AppSettings["token"];
+            string tokenSecret = ConfigurationManager.AppSettings["tokenSecret"];
             service.AuthenticateWith(token, tokenSecret);
 
             SendTweetOptions tweet = new SendTweetOptions();
