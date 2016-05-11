@@ -43,7 +43,7 @@ namespace cleLI
                             game.Refresh();
                             Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
-                            if (game.LeverageIndex >= 1.5)
+                            if (game.LeverageIndex >= 3.0)
                             {
                                 try
                                 {
@@ -62,6 +62,7 @@ namespace cleLI
                             lastKnownSecondStatus = game.BaseState.Item2;
                             lastKnownThirdStatus = game.BaseState.Item3;
                             lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
+                            
                         }
                     }
                     Thread.Sleep(15 * 1000);
@@ -71,6 +72,8 @@ namespace cleLI
             }
             Console.WriteLine("Program ending");
 
+            //Tweet("Test");
+            //Console.WriteLine("tweeted");
         }
 
         static void Tweet(string tweetText)
@@ -172,8 +175,45 @@ namespace cleLI
                     outsPhrase = "three outs";
                     break;
             }
-            
-            return "Heads up: @Indians " + differentialPhrase + " and " + batter + " batting " + (inning.Item1 ? "top " : "bottom ") + inning.Item2 + " with " + basesPhrase + " and " + outsPhrase + " is a high-leverage situation (" + leverageIndex + ").";
+
+            string inningNumberString = "";
+            switch (inning.Item2)
+            {
+                case 1:
+                    inningNumberString = "one";
+                    break;
+                case 2:
+                    inningNumberString = "two";
+                    break;
+                case 3:
+                    inningNumberString = "three";
+                    break;
+                case 4:
+                    inningNumberString = "four";
+                    break;
+                case 5:
+                    inningNumberString = "five";
+                    break;
+                case 6:
+                    inningNumberString = "six";
+                    break;
+                case 7:
+                    inningNumberString = "seven";
+                    break;
+                case 8:
+                    inningNumberString = "eight";
+                    break;
+                case 9:
+                    inningNumberString = "nine";
+                    break;
+                default:
+                    inningNumberString = inning.Item2.ToString();
+                    break;
+            }
+
+            // Phrase scratch:
+            // Heads up: the Indians up one bot 6 with a runner on 1B, one out is a high-leverage (1.6) situation.
+            return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a very-high-leverage (" + leverageIndex + ") situation.";
         }
     }
 }
