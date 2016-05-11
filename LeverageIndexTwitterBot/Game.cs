@@ -26,6 +26,7 @@ namespace cleLI
                 return this.gamedayURL;
             }
         }
+        public bool WatchingHome { get; set; }
         public string Status { get; set; }
         public Tuple<bool, int, int> Inning { get; set; }
         public int AwayRuns { get; set; }
@@ -46,6 +47,7 @@ namespace cleLI
             this.HomeRuns = 0;
             this.BaseState = new Tuple<bool, bool, bool>(false, false, false);
             this.LeverageIndex = 0.9;
+            this.WatchingHome = this.GameID.IndexOf("cle") <= 20 ? false : true;
         }
 
         public bool Refresh()
@@ -55,6 +57,7 @@ namespace cleLI
                 XmlDocument gamedayData = new XmlDocument();
                 gamedayData.Load(gamedayURL + "/miniscoreboard.xml");
 
+                
                 this.Status = gamedayData.SelectSingleNode("/game/game_status").Attributes.GetNamedItem("status").Value;
 
                 this.HomeRuns = Convert.ToInt32(gamedayData.SelectSingleNode("/game/linescore/r").Attributes.GetNamedItem("home").Value);
@@ -84,6 +87,7 @@ namespace cleLI
             }
             catch
             {
+                Console.WriteLine("Gameday update failed");
                 return false;
             }
         }

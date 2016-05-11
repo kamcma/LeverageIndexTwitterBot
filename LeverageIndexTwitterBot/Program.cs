@@ -38,14 +38,15 @@ namespace cleLI
                         if (!(game.Inning.Item3 == lastKnownOuts && game.BaseState.Item1 == lastKnownFirstStatus && game.BaseState.Item2 == lastKnownSecondStatus && game.BaseState.Item3 == lastKnownThirdStatus && game.HomeRuns - game.AwayRuns == lastKnownRunDeltaHome))
                         {
                             //Game state changed
-
-                            Console.Write("{0:t}: Game state changed. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
+                            Thread.Sleep(2 * 1000);
+                            game.Refresh();
+                            Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
                             if (game.LeverageIndex >= 1.5)
                             {
                                 try
                                 {
-                                    string tweetContent = PhraseGenerator(game.CurrentBatter, game.BaseState, game.Inning, game.HomeRuns - game.AwayRuns);
+                                    string tweetContent = PhraseGenerator(game.CurrentBatter, game.BaseState, game.Inning, game.WatchingHome, game.HomeRuns - game.AwayRuns, game.LeverageIndex);
                                     Tweet(tweetContent);
                                     Console.WriteLine("Tweeted: " + tweetContent);
                                 }
@@ -62,7 +63,7 @@ namespace cleLI
                             lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
                         }
                     }
-                    Thread.Sleep(20 * 1000);
+                    Thread.Sleep(15 * 1000);
                 }
                 while (game.Status != "Final");
                 Console.WriteLine(game.GameID + " over");
@@ -85,23 +86,23 @@ namespace cleLI
             service.SendTweet(tweet);
         }
 
-        static string PhraseGenerator(string batter, Tuple<bool, bool, bool> baseState, Tuple<bool, int, int> inning, int runDeltaHome)
+        static string PhraseGenerator(string batter, Tuple<bool, bool, bool> baseState, Tuple<bool, int, int> inning, bool watchingHome, int runDeltaHome, double leverageIndex)
         {
             string basesPhrase = "";
             if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == false)
                 basesPhrase = "nobody on";
             if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == false)
-                basesPhrase = "a man on first";
+                basesPhrase = "a runner on first";
             if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == false)
-                basesPhrase = "a man on second";
+                basesPhrase = "a runner on second";
             if (baseState.Item1 == false && baseState.Item2 == false && baseState.Item3 == true)
-                basesPhrase = "a man on third";
+                basesPhrase = "a runner on third";
             if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == false)
-                basesPhrase = "men on first and second";
+                basesPhrase = "runners on first and second";
             if (baseState.Item1 == true && baseState.Item2 == false && baseState.Item3 == true)
-                basesPhrase = "men on the corners";
+                basesPhrase = "runners on the corners";
             if (baseState.Item1 == false && baseState.Item2 == true && baseState.Item3 == true)
-                basesPhrase = "men on second and third";
+                basesPhrase = "runners on second and third";
             if (baseState.Item1 == true && baseState.Item2 == true && baseState.Item3 == true)
                 basesPhrase = "the bases loaded";
 
@@ -110,7 +111,7 @@ namespace cleLI
             {
                 differentialPhrase = "tied";
             }
-            else if (runDeltaHome > 0)
+            else if ((runDeltaHome > 0 && watchingHome) || (runDeltaHome < 0 && !watchingHome))
             {
                 switch (Math.Abs(runDeltaHome))
                 {
@@ -170,7 +171,7 @@ namespace cleLI
                     break;
             }
             
-            return "Heads up: @Indians " + differentialPhrase + " and " + batter + "up with " + basesPhrase + " and " + outsPhrase + " is a high-leverage situation.";
+            return "Heads up: @Indians " + differentialPhrase + " and " + batter + " batting " + (inning.Item1 ? "top " : "bottom ") + inning.Item2 + " with " + basesPhrase + " and " + outsPhrase + " is a high-leverage situation (" + leverageIndex + ").";
         }
     }
 }
