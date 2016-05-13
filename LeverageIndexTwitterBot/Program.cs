@@ -64,8 +64,13 @@ namespace cleLI
                             lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
                             
                         }
+                        Thread.Sleep(25 * 1000);
                     }
-                    Thread.Sleep(15 * 1000);
+                    else
+                    {
+                        Thread.Sleep(60 * 1000);
+                    }
+                    
                 }
                 while (game.Status != "Final");
                 Console.WriteLine(game.GameID + " over");
