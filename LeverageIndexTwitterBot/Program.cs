@@ -43,7 +43,7 @@ namespace cleLI
                             game.Refresh();
                             Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
-                            if (game.LeverageIndex >= 3.0)
+                            if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 6) || game.LeverageIndex >= 3.0)
                             {
                                 try
                                 {
@@ -68,7 +68,7 @@ namespace cleLI
                     }
                     else
                     {
-                        Thread.Sleep(60 * 1000);
+                        Thread.Sleep(120 * 1000);
                     }
                     
                 }
@@ -218,7 +218,7 @@ namespace cleLI
 
             // Phrase scratch:
             // Heads up: the Indians up one bot 6 with a runner on 1B, one out is a high-leverage (1.6) situation.
-            return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a very-high-leverage (" + leverageIndex + ") situation.";
+            return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a " + (leverageIndex >= 3.0 ? "very-" : "") + "high -leverage (" + leverageIndex + ") situation.";
         }
     }
 }
