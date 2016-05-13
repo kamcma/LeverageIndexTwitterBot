@@ -87,7 +87,7 @@ namespace cleLI
             }
             catch
             {
-                Console.WriteLine("Gameday update failed");
+                Console.WriteLine("Update failed for {0}", this.GameID);
                 return false;
             }
         }

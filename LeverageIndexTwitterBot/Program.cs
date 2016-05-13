@@ -13,72 +13,88 @@ namespace cleLI
     {
         static void Main(string[] args)
         {
-            List<string> todaysGameIDs = Gameday.GetGameIDs(DateTime.Now, "cle");
-            List<Game> todaysGames = new List<Game>();
-
-            foreach (string gameID in todaysGameIDs)
+            while (true)
             {
-                todaysGames.Add(new Game(gameID));
-            }
-
-            foreach (Game game in todaysGames)
-            {
-                Console.WriteLine(game.GameID + "\n");
-                Console.Write("{0:t}: Game to start. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
-                //Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int> lastKnownGameState = new Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int>(new Tuple<bool, int, int>(true, 1, 0), new Tuple<bool, bool, bool>(false, false, false), 0);
-                int lastKnownOuts = 0;
-                bool lastKnownFirstStatus = false;
-                bool lastKnownSecondStatus = false;
-                bool lastKnownThirdStatus = false;
-                int lastKnownRunDeltaHome = 0;
-
-                do
+                try
                 {
-                    if (game.Refresh())
-                    {
-                        if (!(game.Inning.Item3 == lastKnownOuts && game.BaseState.Item1 == lastKnownFirstStatus && game.BaseState.Item2 == lastKnownSecondStatus && game.BaseState.Item3 == lastKnownThirdStatus && game.HomeRuns - game.AwayRuns == lastKnownRunDeltaHome))
-                        {
-                            //Game state changed
-                            Thread.Sleep(2 * 1000);
-                            game.Refresh();
-                            Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
+                    List<string> todaysGameIDs = Gameday.GetGameIDs(DateTime.Now, "cle");
+                    List<Game> todaysGames = new List<Game>();
 
-                            if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 6) || game.LeverageIndex >= 3.0)
+                    foreach (string gameID in todaysGameIDs)
+                    {
+                        todaysGames.Add(new Game(gameID));
+                    }
+
+                    foreach (Game game in todaysGames)
+                    {
+                        Console.WriteLine(game.GameID + "\n");
+                        Console.Write("{0:t}: Game to start. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
+                        //Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int> lastKnownGameState = new Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int>(new Tuple<bool, int, int>(true, 1, 0), new Tuple<bool, bool, bool>(false, false, false), 0);
+                        int lastKnownOuts = 0;
+                        bool lastKnownFirstStatus = false;
+                        bool lastKnownSecondStatus = false;
+                        bool lastKnownThirdStatus = false;
+                        int lastKnownRunDeltaHome = 0;
+
+                        while (game.Status != "Final")
+                        {
+                            if (game.Refresh())
                             {
-                                try
+                                if (!(game.Inning.Item3 == lastKnownOuts && game.BaseState.Item1 == lastKnownFirstStatus && game.BaseState.Item2 == lastKnownSecondStatus && game.BaseState.Item3 == lastKnownThirdStatus && game.HomeRuns - game.AwayRuns == lastKnownRunDeltaHome))
                                 {
-                                    string tweetContent = PhraseGenerator(game.CurrentBatter, game.BaseState, game.Inning, game.WatchingHome, game.HomeRuns - game.AwayRuns, game.LeverageIndex);
-                                    Tweet(tweetContent);
-                                    Console.WriteLine("Tweeted: " + tweetContent);
+                                    //Game state changed
+                                    Thread.Sleep(2 * 1000);
+                                    game.Refresh();
+                                    Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
+
+                                    if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 6) || game.LeverageIndex >= 3.0)
+                                    {
+                                        try
+                                        {
+                                            string tweetContent = PhraseGenerator(game.CurrentBatter, game.BaseState, game.Inning, game.WatchingHome, game.HomeRuns - game.AwayRuns, game.LeverageIndex);
+                                            Tweet(tweetContent);
+                                            Console.WriteLine("Tweeted: " + tweetContent);
+                                        }
+                                        catch
+                                        {
+                                            Console.WriteLine("Tweet failed");
+                                        }
+                                    }
+
+                                    lastKnownOuts = game.Inning.Item3;
+                                    lastKnownFirstStatus = game.BaseState.Item1;
+                                    lastKnownSecondStatus = game.BaseState.Item2;
+                                    lastKnownThirdStatus = game.BaseState.Item3;
+                                    lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
+
                                 }
-                                catch
-                                {
-                                    Console.WriteLine("Tweet failed");
-                                }
+                                Thread.Sleep(25 * 1000);
+                            }
+                            else
+                            {
+                                Thread.Sleep(120 * 1000);
                             }
 
-                            lastKnownOuts = game.Inning.Item3;
-                            lastKnownFirstStatus = game.BaseState.Item1;
-                            lastKnownSecondStatus = game.BaseState.Item2;
-                            lastKnownThirdStatus = game.BaseState.Item3;
-                            lastKnownRunDeltaHome = game.HomeRuns - game.AwayRuns;
-                            
                         }
-                        Thread.Sleep(25 * 1000);
-                    }
-                    else
-                    {
-                        Thread.Sleep(120 * 1000);
-                    }
-                    
-                }
-                while (game.Status != "Final");
-                Console.WriteLine(game.GameID + " over");
-            }
-            Console.WriteLine("Program ending");
 
-            //Tweet("Test");
-            //Console.WriteLine("tweeted");
+                        Console.WriteLine(game.GameID + " over");
+                    }
+
+                    //After a day's games are complete, sleep the thread for a safe length of time before tomorrow's games
+                    int pauseHours = 8;
+                    Console.WriteLine("Pausing execution for {0} hours", pauseHours);
+                    Thread.Sleep(pauseHours * 60 * 60 * 1000);
+                }
+                catch
+                {
+                    Thread.Sleep(60*1000);
+                }
+            }
+
+
+
+            
+
         }
 
         static void Tweet(string tweetText)
