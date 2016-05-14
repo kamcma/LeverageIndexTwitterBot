@@ -81,7 +81,7 @@ namespace cleLI
                     }
 
                     //After a day's games are complete, sleep the thread for a safe length of time before tomorrow's games
-                    int pauseHours = 8;
+                    int pauseHours = 3;
                     Console.WriteLine("Pausing execution for {0} hours", pauseHours);
                     Thread.Sleep(pauseHours * 60 * 60 * 1000);
                 }
@@ -234,7 +234,7 @@ namespace cleLI
 
             // Phrase scratch:
             // Heads up: the Indians up one bot 6 with a runner on 1B, one out is a high-leverage (1.6) situation.
-            return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a " + (leverageIndex >= 3.0 ? "very-" : "") + "high -leverage (" + leverageIndex + ") situation.";
+            return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a " + (leverageIndex >= 3.0 ? "very " : "") + "high-leverage (" + leverageIndex + ") situation.";
         }
     }
 }
