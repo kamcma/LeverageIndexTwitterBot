@@ -8,7 +8,7 @@ namespace cleLI
 {
     static class BaseballStat
     {
-        // http://www.tangotiger.net/re24.html
+        // http://www.insidethebook.com/li.shtml
         static public double LeverageIndex(Tuple<bool, int, int> inning, Tuple<bool, bool, bool> baseState, int runDeltaHome)
         {
             double leverageIndex = 0.0;

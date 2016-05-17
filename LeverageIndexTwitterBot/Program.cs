@@ -47,7 +47,7 @@ namespace cleLI
                                     game.Refresh();
                                     Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.Now, game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
-                                    if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 6) || game.LeverageIndex >= 3.0)
+                                    if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 3) || (game.LeverageIndex >= 2.0 && game.Inning.Item2 <= 6) || game.LeverageIndex >= 3.0)
                                     {
                                         try
                                         {
