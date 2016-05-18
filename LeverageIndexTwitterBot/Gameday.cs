@@ -12,7 +12,7 @@ namespace cleLI
 
         public static List<string> GetGameIDs(DateTime day, string teamCode)
         {
-            day = AdjustBaseballDay(day);
+            //day = AdjustBaseballDay(day);
             teamCode += "mlb";
 
             string dayDirectory;

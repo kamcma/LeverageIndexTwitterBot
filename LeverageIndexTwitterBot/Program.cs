@@ -17,12 +17,14 @@ namespace cleLI
             {
                 try
                 {
-                    List<string> todaysGameIDs = Gameday.GetGameIDs(DateTime.Now, "cle");
+                    DateTime currentET = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
+
+                    List<string> todaysGameIDs = Gameday.GetGameIDs(currentET, "cle");
                     List<Game> todaysGames = new List<Game>();
 
                     foreach (string gameID in todaysGameIDs)
                     {
-                        todaysGames.Add(new Game(gameID));
+                        todaysGames.Add(new Game(gameID, currentET));
                     }
 
                     foreach (Game game in todaysGames)
@@ -81,7 +83,7 @@ namespace cleLI
                     }
 
                     //After a day's games are complete, sleep the thread for a safe length of time before tomorrow's games
-                    int pauseHours = 3;
+                    int pauseHours = 4;
                     Console.WriteLine("Pausing execution for {0} hours", pauseHours);
                     Thread.Sleep(pauseHours * 60 * 60 * 1000);
                 }

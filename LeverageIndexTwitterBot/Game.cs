@@ -37,11 +37,11 @@ namespace cleLI
 
         public double LeverageIndex { get; set; }
 
-        public Game (string gameID)
+        public Game (string gameID, DateTime date)
         {
             this.gameID = gameID;
-            this.date = Gameday.AdjustBaseballDay(DateTime.Now).Date;
-            this.gamedayURL = Gameday.GamedayBaseURL(DateTime.Now) + gameID;
+            this.date = date;
+            this.gamedayURL = Gameday.GamedayBaseURL(date) + gameID;
             this.Inning = new Tuple<bool, int, int>(true, 1, 0);
             this.AwayRuns = 0;
             this.HomeRuns = 0;
