@@ -45,7 +45,7 @@ namespace cleLI
 
         public static string GamedayBaseURL(DateTime day)
         {
-            day = AdjustBaseballDay(day);
+            //day = AdjustBaseballDay(day);
             StringBuilder url = new StringBuilder();
             url.Append("http://gd2.mlb.com/components/game/mlb/year_");
             url.Append(day.Year);

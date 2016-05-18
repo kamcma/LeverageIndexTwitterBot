@@ -17,7 +17,8 @@ namespace cleLI
             {
                 try
                 {
-                    DateTime currentET = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
+                    DateTime currentET = DateTime.UtcNow.AddHours(-4);
+                    Console.WriteLine(currentET);
 
                     List<string> todaysGameIDs = Gameday.GetGameIDs(currentET, "cle");
                     List<Game> todaysGames = new List<Game>();
@@ -29,7 +30,7 @@ namespace cleLI
 
                     foreach (Game game in todaysGames)
                     {
-                        Console.WriteLine(game.GameID + "\n");
+                        Console.WriteLine(game.GameID);
                         Console.Write("{0:t}: Game to start. Leverage Index is {1}\n", DateTime.Now, game.LeverageIndex);
                         //Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int> lastKnownGameState = new Tuple<Tuple<bool, int, int>, Tuple<bool, bool, bool>, int>(new Tuple<bool, int, int>(true, 1, 0), new Tuple<bool, bool, bool>(false, false, false), 0);
                         int lastKnownOuts = 0;
