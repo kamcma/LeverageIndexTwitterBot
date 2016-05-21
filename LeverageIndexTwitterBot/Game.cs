@@ -9,6 +9,10 @@ namespace cleLI
 {
     partial class Game
     {
+        // The game class that gets instantiated for each Indians game on a particular day
+        // Contains properties for all game state varaibles necessary to determine leverage
+        // and a method for refreshing itself from the MLB Gameday api
+
         private string gameID;
         public string GameID
         {

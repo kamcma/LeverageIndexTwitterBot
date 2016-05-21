@@ -11,6 +11,9 @@ namespace cleLI
 {
     class Program
     {
+        // Created by team @cleLeverageBot for the Tribe Hackathon 2016
+        
+
         static void Main(string[] args)
         {
             // infinite loop!
@@ -83,6 +86,8 @@ namespace cleLI
                                             Console.WriteLine("Tweet failed");
                                         }
                                     }
+
+                                    //TODO: log all game states for a post-game summary tweet, writing to file, use on a website, etc.
 
                                     //update all the last known game state variables from the refreshed game state
                                     lastKnownOuts = game.Inning.Item3;

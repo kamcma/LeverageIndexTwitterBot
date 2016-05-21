@@ -8,7 +8,11 @@ namespace cleLI
 {
     static class BaseballStat
     {
-        // http://www.insidethebook.com/li.shtml
+        // A static class with a static method for calculating a Leverage Index value given a game state argument
+        // Based on Tom Tango's calculations: http://www.insidethebook.com/li.shtml
+        // TODO: refactor this into a series of compound arrays, rather than the (admittedly quite gross) series of nested conditionals it is right now
+
+
         static public double LeverageIndex(Tuple<bool, int, int> inning, Tuple<bool, bool, bool> baseState, int runDeltaHome)
         {
             double leverageIndex = 0.0;
