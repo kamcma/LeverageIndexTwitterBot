@@ -70,7 +70,7 @@ namespace cleLI
                                     Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.UtcNow.AddHours(-4), game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
                                     //Check if the game state's leverage index meets a certain threshold
-                                    if ((game.LeverageIndex >= 1.5 && game.Inning.Item2 <= 3) || game.LeverageIndex >= 2.0)
+                                    if (game.LeverageIndex >= 2.0)
                                     {
                                         //if it does, try to tweet the game state and leverage index
                                         try
@@ -270,7 +270,7 @@ namespace cleLI
             // Phrase scratch:
             // Heads up: Lindor facing Price right now is high-leverage (3.8) situation. #tribehackathon
             //return "Heads up: Indians " + differentialPhrase + (inning.Item1 ? " top " : " bottom ") + inningNumberString + " with " + basesPhrase + " and " + outsPhrase + " is a " + (leverageIndex >= 3.0 ? "very " : "") + "high-leverage (" + leverageIndex + ") situation.";
-            return "Heads up: " + batter + " facing " + pitcher + " right now is a " + (leverageIndex >= 3.0 ? "very " : "") + "high-leverage (" + leverageIndex + ") situation. #tribehackathon";
+            return "Heads up: " + batter + " facing " + pitcher + " right now is a " + (leverageIndex >= 3.0 ? "very " : "") + "high-leverage (" + leverageIndex + ") situation.";
         }
     }
 }
