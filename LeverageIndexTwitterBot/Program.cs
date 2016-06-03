@@ -70,7 +70,7 @@ namespace cleLI
                                     Console.Write("{0:t}: Game state changed. H:{2} A:{3}, {4}o. 1B:{5} 2B:{6} 3B:{7} -- LI: {1}\n", DateTime.UtcNow.AddHours(-4), game.LeverageIndex, game.HomeRuns, game.AwayRuns, game.Inning.Item3, game.BaseState.Item1, game.BaseState.Item2, game.BaseState.Item3);
 
                                     //Check if the game state's leverage index meets a certain threshold
-                                    if (game.LeverageIndex >= 2.0)
+                                    if (game.LeverageIndex >= 3.0)
                                     {
                                         //if it does, try to tweet the game state and leverage index
                                         try
